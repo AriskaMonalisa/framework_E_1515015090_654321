@@ -1,5 +1,5 @@
 <?php
-
+ 
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,10 +10,24 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/', function(){
-	return view('master');
+use  Illuminate\Http\request;
+Route::get('/',function ()
+{
+	echo From::oopen(['url'=>'/']).
+	From::label('nama').
+	From::text('nama',null).
+	From::submit('kirim').
+	From::close();
+
+});
+Route::post('/',function (Request $request)
+{
+	echo "Hasil dari from input tadi nama : ".$request->nama;
 });
 
+// Route::get('/', function(){
+// 	return view('master');
+// });
 Route::get('pengguna', 'PenggunaController@awal');
 Route::get('pengguna/tambah', 'PenggunaController@tambah');
 Route::get('pengguna/{pengguna}','PenggunaController@lihat');
@@ -67,3 +81,14 @@ Route::get('dosen_matakuliah/hapus/{dosen_matakuliah}', 'Dosen_MatakuliahControl
 
 Route::get('jadwal_matakuliah', 'Jadwal_MatakuliahController@awal');
 Route::get('jadwal_matakuliah/tambah', 'Jadwal_MatakuliahController@tambah');
+Route::get('jadwal_matakuliah/simpan','Jadwal_MatakuliahController@simpan');
+Route::get('jadwal_matakuliah/edit/{jadwal_matakuliah}','Jadwal_MatakuliahController@edit');
+Route::get('jadwal_matakuliah/update/{jadwal_matakuliah}','Jadwal_MatakuliahController@update');
+Route::get('jadwal_matakuliah/hapus/{jadwal_matakuliah}','Jadwal_MatakuliahController@hapus');
+
+Route::get('/',function (Illuminate\Http\Request $request)
+{
+	echo " ini ada request dari method get ". $request->nama;
+});
+
+

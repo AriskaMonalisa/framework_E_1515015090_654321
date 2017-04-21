@@ -48,14 +48,26 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown active">
+                    <!-- <li class="dropdown active">
                         <a href="{{url('mahasiswa')}}" data-togle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mahasiswa <span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="dLabel">
                                 <li><a href="{{url('Mahasiswa')}}">Data Mahasiswa</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{{url('jadwal_matakuliah')}}">Jadwal Mahasiswa</a></li>
                             </ul>
+                    </li> -->
+
+                    <li class="dropdown active">
+                        <a href="{{url('mahasiswa')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Mahasiswa <span class="caret"></span>
+                        </a>
+                         <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li><a href="{{url('mahasiswa')}}">Data Mahasiswa</a></li>
+                                <li class="divider"></li>
+                                <li><a href="{{url('jadwal_matakuliah')}}">Jadwal Mahasiswa</a></li>
+                            </ul>
                     </li>
+
+
                     <li class="dropdown active">
                         <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Dosen <span class="caret"></span>
                         </a>
@@ -82,6 +94,15 @@
        </nav>
        <div class="clearfix"></div>
        <div class="container">
+       @if (count($errors) > 0)
+       <div  class="alert alert-danger">
+         <ul>
+           @foreach ($errors->all() as $error)
+           <li>{{ $error }}</li>
+           @endforeach
+         </ul>
+       </div>
+       @endif
            @if(Session::has('informasi'))
                 <div class="alert alert-info">
                     <strong>Informasi :</strong>
@@ -94,7 +115,7 @@
            <footer class="container">
                <!   please dont delete this >
                created by <a href="#">
-               <span><i class="fa fa-facebook" style="color: #1da1f2"></i>@ndreardin</span></a> <!--/   please dont delete this    -->
+               <span><i class="fa fa-facebook" style="color: #1da1f2"></i>@ariskamonalisa</span></a> <!--/   please dont delete this    -->
            </footer>
        </nav>
 

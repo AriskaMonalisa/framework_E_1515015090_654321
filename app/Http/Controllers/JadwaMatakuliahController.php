@@ -46,6 +46,9 @@ public function simpan(Request $input){
     }
 public function edit($id){
     $jadwa_matakuliah = jadwa_matakuliah::find($id);
+    $mahasiswa =  new mahasiswa;
+    $ruangan = new ruangan;
+    $DosenMatakuliah new DosenMakuliah;
     return view('jadwa_matakuliah.edit')->with(array('jadwa_matakuliah'=>$jadwal_matakuliah));
     }
 public function lihat($id){
