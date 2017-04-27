@@ -28,6 +28,28 @@ Route::post('/',function (Request $request)
 // Route::get('/', function(){
 // 	return view('master');
 // });
+Route::get('/login','SesiController@from');
+Route::post('/login','SesiController@validasi');
+Route::get('/login','SesiController@logout');
+Route::get('/','SesiController@index');
+Route::group(['middleware'=>'AutentifikasiUser'],function()
+{
+	#paste code yang tadi dicut disini
+Route::get('pengguna', 'PenggunaController@awal');
+Route::get('pengguna/tambah', 'PenggunaController@tambah');
+Route::get('pengguna/{pengguna}','PenggunaController@lihat');
+Route::post('pengguna/simpan','PenggunaController@simpan');
+Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
+Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
+Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
+
+});
+
+Route::get('/login','SesiController@from');
+Route::post('/login','SesiController@validasi');
+Route::get('/login','SesiController@logout');
+Route::get('/','SesiController@index');
+
 Route::get('pengguna', 'PenggunaController@awal');
 Route::get('pengguna/tambah', 'PenggunaController@tambah');
 Route::get('pengguna/{pengguna}','PenggunaController@lihat');
